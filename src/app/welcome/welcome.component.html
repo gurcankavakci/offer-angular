@@ -1,0 +1,75 @@
+<div style="text-align:center">
+  <h1>OFFER</h1>
+  <h1>Ubuntu Technical Solution Search Engine</h1>
+  <p>
+    This is a search engine for ubuntu technical chat history.
+    <br> Type your problem and click Search button.
+  </p>
+  <mat-form-field class="example-full-width" appearance="fill" style="width: 500px">
+    <mat-label>Your question?</mat-label>
+    <input matInput placeholder="Ex. How to reboot ubuntu operating system" [(ngModel)]="question">
+  </mat-form-field>
+  <button button="submit" mat-raised-button color="primary" (click)="search()">
+    <mat-icon>search</mat-icon> Search
+  </button>
+  <div class="container" [hidden]="!anySearch">
+    <div fxLayout="row" fxLayoutAlign="center center" class="content">
+      <mat-card class="card" >
+        <mat-card-title fxLayout.gt-xs="row" fxLayout.xs="column">
+          <h3>Results</h3>
+        </mat-card-title>
+        <mat-card-content>
+          <div class="example-container mat-elevation-z8">
+            <mat-table #table [dataSource]="dataSource">
+              <ng-container matColumnDef="date">
+                <mat-header-cell *matHeaderCellDef width="2%"> Date </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.date  | date: 'd/M/y'}} </mat-cell>
+              </ng-container>
+              <ng-container matColumnDef="summary">
+                <mat-header-cell *matHeaderCellDef> Summary </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.question}} </mat-cell>
+              </ng-container>
+              <ng-container matColumnDef="score">
+                <mat-header-cell *matHeaderCellDef> Score </mat-header-cell>
+                <mat-cell *matCellDef="let element" style="margin-left:30px"> {{element.score}} </mat-cell>
+              </ng-container>
+              <ng-container matColumnDef="action">
+                <mat-header-cell *matHeaderCellDef> Action</mat-header-cell>
+                <mat-cell *matCellDef="let element" style="margin-left:30px">
+                  <a (click)="openDetails(element)" type="button">
+                    <mat-icon class="icon">question_answer</mat-icon>
+                  </a>
+                </mat-cell>
+              </ng-container>
+              <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+              <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+            </mat-table>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+<!--  <form class="example-form" (ngSubmit)="onSubmit()">-->
+<!--    <mat-form-field class="example-full-width" appearance="fill" style="width: 500px">-->
+<!--      <mat-label>Your question?</mat-label>-->
+<!--      <input matInput placeholder="Ex. How to reboot ubuntu operating system" [(ngModel)]="question">-->
+<!--    </mat-form-field>-->
+<!--    <mat-form-field>-->
+<!--      <input matInput placeholder="Post Title" type="text" required [(ngModel)]="blogPost.title" name="name">-->
+<!--    </mat-form-field>-->
+<!--    <mat-form-field>-->
+<!--      <textarea matInput placeholder="Post Body" required [(ngModel)]="blogPost.body" name="body"></textarea>-->
+<!--    </mat-form-field>-->
+<!--    <mat-form-field>-->
+<!--      <mat-select matInput placeholder="Post Category" required [(ngModel)]="blogPost.category" name="category">-->
+<!--        <mat-option *ngFor="let cat of categories" [value]="cat.value">-->
+<!--          {{ cat.viewValue }}-->
+<!--        </mat-option>-->
+<!--      </mat-select>-->
+<!--    </mat-form-field>-->
+<!--    <button mat-raised-button type="submit" color="primary">Save</button>-->
+<!--      <button button="submit" mat-raised-button color="primary" (click)="search()">-->
+<!--        <mat-icon>search</mat-icon> Search-->
+<!--      </button>-->
+<!--  </form>-->
+</div>
