@@ -11,7 +11,7 @@ import {MatDialog} from '@angular/material';
 })
 export class WelcomeComponent implements OnInit {
   // chatHistoryPath = 'F:\\Belgelerim\\doktora\\21_22 spring\\596\\dataset\\ubuntu_dialogs_full';
-  question = 'how to reboot ubuntu operation system';
+  question = 'how to reboot ubuntu operating system';
   displayedColumns = ['date', 'summary', 'score', 'action'];
   dataSource = [
   //   {

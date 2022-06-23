@@ -1,26 +1,9 @@
-<h1 mat-dialog-title>Question: {{data.question}}</h1>
+<h1 mat-dialog-title style="color:#3f51b5">Question: {{data.question}}</h1>
 Chat History:
-<textarea style=" width: 820px;  height: 200px;" >{{data.text}}</textarea>
+<textarea style=" width: 820px;  height: 200px;" spellcheck="false" >{{data.text}}</textarea>
 <p >Score: {{data.score}}</p>
 <p >Date: {{data.date}}</p>
 <p >Users: {{data.users}}</p>
-<!--<div mat-dialog-content>-->
-<!--  <form class="example-form" (ngSubmit)="onSubmit()">-->
-<!--    <mat-form-field>-->
-<!--      <input matInput placeholder="Post Title" type="text" required [(ngModel)]="blogPost.title" name="name">-->
-<!--    </mat-form-field>-->
-<!--    <mat-form-field>-->
-<!--      <textarea matInput placeholder="Post Body" required [(ngModel)]="blogPost.body" name="body"></textarea>-->
-<!--    </mat-form-field>-->
-<!--    <mat-form-field>-->
-<!--      <mat-select matInput placeholder="Post Category" required [(ngModel)]="blogPost.category" name="category">-->
-<!--        <mat-option *ngFor="let cat of categories" [value]="cat.value">-->
-<!--          {{ cat.viewValue }}-->
-<!--        </mat-option>-->
-<!--      </mat-select>-->
-<!--    </mat-form-field>-->
-<!--  </form>-->
-<!--</div>-->
 <div mat-dialog-actions>
   <button mat-raised-button class="close" (click)="onNoClick()" color="warn">Close</button>
 </div>
