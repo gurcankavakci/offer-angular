@@ -21,6 +21,7 @@ export class WelcomeComponent implements OnInit {
   // }
   ];
   anySearch = false;
+  isLoading = false;
   constructor(public solrService: SolrService, public dialog: MatDialog) { }
 
   ngOnInit() {
@@ -28,14 +29,20 @@ export class WelcomeComponent implements OnInit {
 
   search(): void {
     console.log(this.question);
+    this.dataSource = [];
+    this.isLoading = true;
     this.anySearch = true;
+
     this.solrService.getDocuments(this.question).subscribe(response => {
       this.dataSource = response.response.docs;
+      this.isLoading = false;
     });
   }
 
   openDetails(data): void {
     console.log(data);
+    data.text = '-> ' + data.text.replaceAll('\n', '\n-> ');
+    data.text = data.text.substr(0, (data.text.length - 3));
     this.dialog.open(PostDialogComponent, {
       width: '900px',
       data
